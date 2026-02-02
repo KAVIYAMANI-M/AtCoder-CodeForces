@@ -1,0 +1,35 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int P = sc.nextInt();
+    int person[] = new int[P+1];
+    for(int i=1;i<=P;i++)
+    {
+      person[i] = sc.nextInt();
+    }
+    boolean called[] = new boolean[P+1];
+    Arrays.fill(called,false);
+    for(int i=1;i<=P;i++)
+    {
+      if(!called[i])
+      {
+        called[person[i]] = true;
+      }
+    }
+    List<Integer> list = new ArrayList<>();
+    for(int i=1;i<=P;i++)
+    {
+      if(!called[i])
+      {
+        list.add(i);
+      }
+    }
+    System.out.println(list.size());
+    for(int p : list)
+    {
+      System.out.print(p+" ");
+    }
+  }
+}
